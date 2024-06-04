@@ -1,0 +1,5 @@
+rootProject.name = 'task'
+include 'task-external'
+include 'task-back'
+include 'task-common'
+
