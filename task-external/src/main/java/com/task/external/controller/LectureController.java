@@ -43,7 +43,11 @@ public class LectureController {
     }
 
     @PostMapping(value = "/attendee/{employee-id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "강연 신청", description = "강연 신청 API")
+    @Operation(
+            summary = "강연 신청",
+            description = """ 
+            강연 신청 API
+            중복 신청 및 종료된 강연에 대한 신청 불가""")
     @ResponseStatus(HttpStatus.CREATED)
     public void createLectureAttendee(
             @NotEmpty @PathVariable("employee-id") String employeeId,
