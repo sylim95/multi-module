@@ -2,10 +2,7 @@ package com.task.external.mapper;
 
 import com.task.common.domain.Lecture;
 import com.task.external.dto.LectureDto;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.Named;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDateTime;
@@ -23,7 +20,7 @@ import java.util.List;
  * -----------------------------------------------------------
  * 6/3/24        limsooyoung       최초 생성
  */
-@Mapper
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface LectureMapper {
 
     LectureMapper INSTANCE = Mappers.getMapper(LectureMapper.class);

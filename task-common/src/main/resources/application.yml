@@ -13,7 +13,7 @@ spring:
         show_sql: true
     database-platform: org.hibernate.dialect.H2Dialect
   datasource:
-    url: jdbc:h2:~/testdb
+    url: jdbc:h2:~/testdb;LOCK_TIMEOUT=10000
     username: sa
   sql:
     init:
@@ -24,3 +24,13 @@ server:
   servlet:
     encoding:
       charset: UTF-8
+
+springdoc:
+  swagger-ui:
+    path: /lecture/swagger.html
+    doc-expansion: none
+    defaultModelsExpandDepth: -1
+    groups-order: ASC
+    tags-sorter: alpha
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json

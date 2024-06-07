@@ -3,10 +3,7 @@ package com.task.common.domain;
 import com.task.common.common.code.ReturnCode;
 import com.task.common.error.exception.BusinessException;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Comment;
 
 import java.time.LocalDateTime;
@@ -29,6 +26,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@EqualsAndHashCode
 @Table(name = "lecture_main")
 public class Lecture {
 

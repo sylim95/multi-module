@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS lecture_main
     lecture_main_id int AUTO_INCREMENT,
     speaker_name varchar(50) NOT NULL,
     location varchar(100),
-    attendee_count int NOT NULL,
+    attendee_count int NOT NULL DEFAULT 0,
     total_count int NOT NULL,
     lecture_start_time datetime NOT NULL,
     lecture_end_time datetime,

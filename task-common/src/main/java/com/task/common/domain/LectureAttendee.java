@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
 /**
@@ -20,7 +21,7 @@ import org.hibernate.annotations.Comment;
  * 6/2/24        limsooyoung       최초 생성
  */
 @Getter
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -48,5 +49,6 @@ public class LectureAttendee extends BaseEntity {
 
     public void delete() {
         this.delYn = "Y";
+        this.lecture.decreaseAttendeeCount();
     }
 }

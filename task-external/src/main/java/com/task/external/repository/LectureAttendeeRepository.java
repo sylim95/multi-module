@@ -4,6 +4,7 @@ import com.task.common.domain.LectureAttendee;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,4 +28,7 @@ public interface LectureAttendeeRepository extends JpaRepository<LectureAttendee
     LectureAttendee findByLecture_LectureMainIdAndEmployeeIdAndDelYn(Integer lectureMainId, String employeeId, String delYn);
 
     List<LectureAttendee> findByEmployeeIdAndDelYn(String employeeId, String delYn);
+
+    @Query("SELECT attendee FROM LectureAttendee attendee")
+    List<LectureAttendee> findAllWithOutLectureMain();
 }

@@ -1,6 +1,7 @@
 package com.task.back.dto;
 
 import com.task.common.domain.Lecture;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,19 +23,23 @@ public class LectureAttendeeDto {
     @Getter
     @Builder
     public static class Res {
-        // 신청자 PK
+
+        @Schema(description = "신청자 PK ID")
         private Integer lectureAttendeeId;
 
-        // 신청자 사번
+        @Schema(description = "신청 강연 PK ID")
+        private Integer lectureMainId;
+
+        @Schema(description = "신청자 사번")
         private String employeeId;
 
-        // 삭제 여부
+        @Schema(description = "삭제 여부")
         private String delYn;
 
-        // 등록 일자
+        @Schema(description = "등록 일자")
         private String regDate;
 
-        // 수정 일자
+        @Schema(description = "수정 일자")
         private String modDate;
     }
 }

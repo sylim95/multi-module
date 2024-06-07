@@ -5,6 +5,7 @@ import com.task.common.domain.Lecture;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ import java.util.List;
  * -----------------------------------------------------------
  * 6/4/24        limsooyoung       최초 생성
  */
-@Mapper
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface LectureMapper {
 
     LectureMapper INSTANCE = Mappers.getMapper(LectureMapper.class);

@@ -1,6 +1,7 @@
 package com.task.external.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
@@ -24,11 +25,12 @@ public class LectureAttendeeDto {
     @Setter
     @Builder
     public static class Req {
-        // 강연 ID
+
+        @Schema(description = "강연 ID")
         @NotNull
         private Integer lectureMainId;
 
-        // 신청자 ID
+        @Schema(description = "신청자 ID", hidden = true)
         private String employeeId;
     }
 
@@ -37,13 +39,27 @@ public class LectureAttendeeDto {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Res {
 
-        // 강연 ID
+        @Schema(description = "강연 ID")
         private Integer lectureMainId;
 
-        // 강연자
+        @Schema(description = "강연자")
         private String speakerName;
 
-        // 신청자 아이디
+        @Schema(description = "신청자 아이디")
         private String employeeId;
+
+        @Schema(description = "신청 일자")
+        private String regDate;
+    }
+
+    @Getter
+    @Builder
+    public static class CountRes {
+
+        @Schema(description = "강연 ID")
+        private Integer lectureMainId;
+
+        @Schema(description = "신청자 수")
+        private Integer count;
     }
 }

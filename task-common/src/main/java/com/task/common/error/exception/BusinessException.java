@@ -26,10 +26,6 @@ public class BusinessException extends RuntimeException {
         this.returnCode = returnCode;
     }
 
-    public static BusinessException from(ReturnCode returnCode) {
-        return new BusinessException(returnCode);
-    }
-
     public static BusinessException of(String message, ReturnCode returnCode) {
         return new BusinessException(message, returnCode);
     }

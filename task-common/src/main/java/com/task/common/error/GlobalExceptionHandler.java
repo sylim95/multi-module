@@ -29,6 +29,7 @@ import java.util.List;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    // NOTE: javax.validation.Valid or @Validated 으로 binding error 발생
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         log.error("handleMethodArgumentNotValidException, {}", ExceptionUtils.getMessage(e));
@@ -36,6 +37,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.valueOf(ReturnCode.ERROR_400.getCode()));
     }
 
+    // NOTE: 지원하지 않은 URL 호출
     @ExceptionHandler(NoResourceFoundException.class)
     protected ResponseEntity<ErrorResponse> handleNoResourceFoundException(NoResourceFoundException e) {
         log.error("handleNoResourceFoundException, {}", ExceptionUtils.getMessage(e));

@@ -1,9 +1,10 @@
 package com.task.external.controller;
 
 import com.task.external.dto.LectureAttendeeDto;
-import com.task.external.dto.LectureAttendeeInterface;
 import com.task.external.dto.LectureDto;
 import com.task.external.service.LectureService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -26,6 +27,7 @@ import java.util.List;
  * -----------------------------------------------------------
  * 6/3/24        limsooyoung       최초 생성
  */
+@Tag(name = "강연 Front API")
 @Slf4j
 @RequestMapping("/v1/lecture")
 @RequiredArgsConstructor
@@ -34,14 +36,14 @@ public class LectureController {
 
     private final LectureService lectureService;
 
-    // 강연 목록
     @GetMapping("")
+    @Operation(summary = "강연 목록", description = "강연 시작 시간 1주일 전부터 강연 시작 시간 1일 후까지의 강연 목록 API")
     public List<LectureDto.Res> getLectureList() {
         return lectureService.getLectureList();
     }
 
-    // 강연 신청
     @PostMapping(value = "/attendee/{employee-id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "강연 신청", description = "강연 신청 API")
     @ResponseStatus(HttpStatus.CREATED)
     public void createLectureAttendee(
             @NotEmpty @PathVariable("employee-id") String employeeId,
@@ -50,14 +52,14 @@ public class LectureController {
         lectureService.creatLectureAttendee(request);
     }
 
-    // 강연 신청 내역 조회
     @GetMapping(value = "/attendee/{employee-id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "강연 신청 내역 조회", description = "강연 신청 내역 조회 API")
     public List<LectureAttendeeDto.Res> getLectureAttendee(@NotNull @PathVariable("employee-id") String employeeId) {
         return lectureService.getLectureAttendee(employeeId);
     }
 
-    // 신청한 강연 취소
     @DeleteMapping(value = "/attendee/{employee-id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "신청한 강연 취소", description = "신청한 강연 취소 API")
     public void removeLectureAttendee(
             @NotEmpty @PathVariable("employee-id") String employeeId,
             @Valid @RequestBody LectureAttendeeDto.Req request) {
@@ -67,7 +69,8 @@ public class LectureController {
 
     // 실시간 인기 강연
     @GetMapping(value = "/popular", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<LectureAttendeeInterface> getPopularLecture() {
+    @Operation(summary = "실시간 인기 강연", description = "3일간 가장 신청이 많은 강연 순으로 조회하는 API")
+    public List<LectureAttendeeDto.CountRes> getPopularLecture() {
         return lectureService.getPopularLecture();
     }
 
