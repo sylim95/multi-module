@@ -1,8 +1,6 @@
 package com.task.common.common.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -36,4 +34,11 @@ public abstract class BaseEntity {
     @LastModifiedDate
     @Column(name = "mod_date")
     private LocalDateTime modDate;
+
+    @PrePersist
+    @PreUpdate
+    protected void onCreateOrUpdate() {
+        regDate = regDate.withNano(0);
+        modDate = modDate.withNano(0);
+    }
 }
