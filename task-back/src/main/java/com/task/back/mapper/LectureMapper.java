@@ -37,6 +37,7 @@ public interface LectureMapper {
     @Named("stringToLocalDateTime")
     default LocalDateTime stringToLocalDateTime(String date) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        if(date == null) return null;
         return LocalDateTime.parse(date, format);
     }
 }
