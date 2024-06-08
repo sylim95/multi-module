@@ -24,7 +24,6 @@ import java.util.List;
 public interface LectureAttendeeRepository extends JpaRepository<LectureAttendee, Integer> {
     boolean existsByLecture_LectureMainIdAndEmployeeIdAndDelYn(Integer lectureMainId, String employeeId, String delYn);
 
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
     LectureAttendee findByLecture_LectureMainIdAndEmployeeIdAndDelYn(Integer lectureMainId, String employeeId, String delYn);
 
     List<LectureAttendee> findByEmployeeIdAndDelYn(String employeeId, String delYn);

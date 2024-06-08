@@ -49,6 +49,5 @@ public class LectureAttendee extends BaseEntity {
 
     public void delete() {
         this.delYn = "Y";
-        this.lecture.decreaseAttendeeCount();
     }
 }

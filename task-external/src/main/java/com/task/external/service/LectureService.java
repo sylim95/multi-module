@@ -117,12 +117,16 @@ public class LectureService {
      * */
     @Transactional
     public void removeLectureAttendee(LectureAttendeeDto.Req request) {
+        Lecture lecture = lectureRepository.findByIdForUpdate(request.getLectureMainId())
+                .orElseThrow(() -> BusinessException.of("해당하는 강연 정보가 없습니다.", ReturnCode.ERROR_400));
+
         LectureAttendee lectureAttendee = lectureAttendeeRepository.findByLecture_LectureMainIdAndEmployeeIdAndDelYn(request.getLectureMainId(), request.getEmployeeId(), "N");
         if(ObjectUtils.isEmpty(lectureAttendee)) {
             throw BusinessException.of("강연 신청 내역이 없습니다.", ReturnCode.ERROR_400);
         }
 
         lectureAttendee.delete();
+        lecture.decreaseAttendeeCount();
     }
 
     /**
