@@ -45,7 +45,11 @@ public class LectureController {
     }
 
     @GetMapping("/attendee")
-    @Operation(summary = "강연별 신청자 목록", description = "강연별 신청자 목록 API")
+    @Operation(
+            summary = "강연별 신청자 목록",
+            description = """
+            조회 조건: 강연 Id, 삭제 여부 (없을 시 전체 조회)
+            강연별 신청자 목록 API""")
     public List<LectureAttendeeDto.Res> getLectureAttendeeList(
             @RequestParam(value = "lectureMainId", required = false) Integer lectureMainId,
             @RequestParam(value = "delYn", required = false) String delYn
