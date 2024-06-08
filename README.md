@@ -51,8 +51,8 @@
 * location: 강연장 정보 입니다.
 * attendee_count: 강연 신청 인원 으로 필수 값이고, 기본값 0입니다.
 * total_count: 강연 신청 가능 인원 으로 필수 값입니다.
-* lecture_start_time: 강연 시작 시간 으로 필수 값입니다..
-* lecture_end_time: 강연 종료 시간 입니다.
+* lecture_start_time: 강연 시작 시간 으로 필수 값입니다.
+* lecture_end_time: 강연 종료 시간 으로 필수 값입니다.
 * content: 강연 내용 입니다.
 
 ### 강연 신청자 테이블(lecture_attendee)

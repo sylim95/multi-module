@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS lecture_main
     attendee_count int NOT NULL DEFAULT 0,
     total_count int NOT NULL,
     lecture_start_time datetime NOT NULL,
-    lecture_end_time datetime,
+    lecture_end_time datetime NOT NULL,
     content varchar(255),
     PRIMARY KEY(lecture_main_id)
 );
