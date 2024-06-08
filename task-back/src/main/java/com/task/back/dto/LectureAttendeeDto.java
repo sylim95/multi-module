@@ -1,11 +1,8 @@
 package com.task.back.dto;
 
-import com.task.common.domain.Lecture;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
-import org.hibernate.annotations.Comment;
 
 /**
  * packageName    : com.task.back.dto

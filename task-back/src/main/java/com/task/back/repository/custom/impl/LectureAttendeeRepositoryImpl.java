@@ -6,7 +6,6 @@ import com.task.back.repository.custom.LectureAttendeeCustomRepository;
 import com.task.common.domain.LectureAttendee;
 import com.task.common.domain.QLectureAttendee;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

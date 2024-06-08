@@ -5,8 +5,6 @@ import com.task.common.domain.LectureAttendee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * packageName    : com.task.back.repository
  * fileName       : LectureAttendeeRepository

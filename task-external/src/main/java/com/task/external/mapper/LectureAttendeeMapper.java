@@ -2,7 +2,6 @@ package com.task.external.mapper;
 
 import com.task.common.domain.LectureAttendee;
 import com.task.external.dto.LectureAttendeeDto;
-import com.task.external.dto.LectureDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;

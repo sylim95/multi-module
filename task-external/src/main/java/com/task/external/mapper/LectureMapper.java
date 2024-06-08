@@ -2,11 +2,11 @@ package com.task.external.mapper;
 
 import com.task.common.domain.Lecture;
 import com.task.external.dto.LectureDto;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
